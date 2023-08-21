@@ -26,9 +26,6 @@ sub_df <- tbl_with_sources[,c("RIL_Start","end","filename")]
 # removing duplicates in df
 temp <- sub_df[!duplicated(sub_df$RIL_Start),]
 
-temp
-
-
 
 # Creating new column with difference in end location value
 diff_df <- 
@@ -36,7 +33,6 @@ diff_df <-
     mutate(end_diff = end - lag(end))
 #    mutate(end_diff = temp$end - lag(temp$end))
 
-diff_df
 # subsetting for mping that are within 1 kb from one another
 
 df_6kb <- diff_df[diff_df$end_diff < 6000, ]
